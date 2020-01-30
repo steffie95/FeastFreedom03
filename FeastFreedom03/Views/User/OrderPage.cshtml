@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FeastFreedom03.Models.OrderModel>
+
+@*@model FeastFreedom03.Models.OrderModelContext*@
+
+@{
+    //RenderPage("OrderPage");
+    ViewBag.Title = "OrderPage";
+}
+
+<h2>OrderPage</h2>
+
+<table class="table">
+    <tr>
+        <th>
+          
+            @Html.DisplayNameFor(model => model.Items.ItemID)
+        <th>
+            @Html.DisplayNameFor(model => model.Items.ItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.isVeg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.KitchenID)
+        </th>
+        <th>
+            
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    { 
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Items.ItemID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Items.ItemPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Items.isVeg)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Items.Kitchen.KitchenID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Items.OrderDetails)
+    </td>
+
+
+</tr>
+    }
+
+</table>

@@ -1,0 +1,56 @@
+﻿@model FeastFreedom03.Models.Kitchen
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Kitchen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KitchenName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KitchenName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KitchenEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KitchenEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KitchenPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KitchenPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KitchenID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KitchenID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

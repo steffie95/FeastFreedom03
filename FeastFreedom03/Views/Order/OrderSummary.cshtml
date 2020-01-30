@@ -1,0 +1,42 @@
+﻿@model FeastFreedom03.Models.OrderDetail
+
+@{
+    ViewBag.Title = "OrderSummary";
+}
+
+<h2>OrderSummary</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemTotal)
+        </th>
+        <th></th>
+    </tr>
+
+@for (int i = 0; i < Model.OrderDetailList.Count(); i++)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(x => x.OrderDetailList[i].ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(x => x.OrderDetailList[i].Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(x => x.OrderDetailList[i].ItemTotal)
+        </td>
+    </tr>
+}
+
+</table>

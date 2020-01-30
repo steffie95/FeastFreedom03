@@ -1,0 +1,72 @@
+﻿@model FeastFreedom03.Views.ViewModels.OrderViewModel
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OrderPage</title>
+</head>
+@using (Html.BeginForm())
+{
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.ItemPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.isVeg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetail.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kitchen.KitchenName)
+            </th>
+        </tr>
+      
+
+
+        
+     
+        @for (int i = 0; i < Model.OrderViewModelList.Count(); i++)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(x => x.OrderViewModelList[i].Item.ItemName, new { @class = "form-control", @readonly = "readonly" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(x => x.OrderViewModelList[i].Item.ItemPrice,  new { @class = "form-control", @readonly = "readonly" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(x => x.OrderViewModelList[i].Item.isVeg)
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OrderViewModelList[i].OrderDetail.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(x => x.OrderViewModelList[i].Kitchen.KitchenName)
+                        </td>
+                    </tr>
+                  }
+     </table>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+        @Html.AntiForgeryToken()
+        @Html.ActionLink("Place Order", "OrderComplete")
+        @Html.ActionLink("Submit?", "OrderSummary", "Order", new { m = @Model })
+    </div>
+</body>
+}
+</html>

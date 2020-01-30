@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FeastFreedom03.Models.Kitchen>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KitchenName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KitchenEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KitchenPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KitchenID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KitchenName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KitchenEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KitchenPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KitchenID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KitchenID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KitchenID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KitchenID })
+        </td>
+    </tr>
+}
+
+</table>

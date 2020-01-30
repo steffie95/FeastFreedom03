@@ -1,0 +1,93 @@
+﻿@model IEnumerable<FeastFreedom03.Models.KitchenHOOp>
+
+@{
+    ViewBag.Title = "Hours";
+}
+
+<h2>Hours</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.openMon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openTues)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openWeds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openThurs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openFri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openSat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openSun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.closeTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kitchen.KitchenName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kitchen.KitchenID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.openMon)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.openTues)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.openWeds)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.openThurs)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.openFri)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.openSat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.openSun)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.openTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.closeTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kitchen.KitchenName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kitchen.KitchenID)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.KitchenID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.KitchenID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.KitchenID })
+    </td>
+</tr>
+}
+
+</table>

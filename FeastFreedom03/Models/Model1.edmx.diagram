@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc0ced99e4654bd6b2880a10ca2b8160" Name="Diagram1">
+        <EntityTypeShape EntityType="FeastFreedomModel1.Item" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeastFreedomModel1.KitchenHOOp" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeastFreedomModel1.Kitchen" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeastFreedomModel1.OrderDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeastFreedomModel1.Order" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeastFreedomModel1.User" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="FeastFreedomModel1.FK__Items__KitchenID__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="FeastFreedomModel1.FK__OrderDeta__ItemI__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="FeastFreedomModel1.FK__KitchenHO__Kitch__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="FeastFreedomModel1.FK__OrderDeta__Order__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="FeastFreedomModel1.FK__OrderDeta__UserI__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="FeastFreedomModel1.FK__Orders__UserID__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

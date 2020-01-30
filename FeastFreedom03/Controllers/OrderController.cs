@@ -14,20 +14,19 @@ namespace FeastFreedom03.Controllers
     [Authorize]
     public class OrderController : Controller
     {
+        public ActionResult OrderSummary(List<OrderDetail> detailsList)
+        {
+            FeastFreedomEntities1 db = new FeastFreedomEntities1();
+            return View(detailsList);
+        }
+
+
         [ValidateAntiForgeryToken]
         public ActionResult OrderComplete()
         {
-
             return View();
-        }
-        // GET: Order
+        }    
 
-        /* public ActionResult Index()
-         {
-             FeastFreedomEntities1 db = new FeastFreedomEntities1();
-             List<OrderViewModel> orderViewModel = new List<OrderViewModel>();
-             return View();
-         }*/
 
         [HttpGet]
         public ActionResult SelectKitchen()
@@ -41,8 +40,8 @@ namespace FeastFreedom03.Controllers
             return View(kitchenList);
         }
 
-        [HttpGet]
 
+        [HttpGet]
         public ActionResult OrderPage(int? kitchenID)
         {
             if (kitchenID != null)
@@ -64,15 +63,14 @@ namespace FeastFreedom03.Controllers
                     ovm.Item.isVeg = item.isVeg;
                     ovm.OrderDetail.Quantity = 0;
                     ovm.Kitchen.KitchenName = item.KitchenName;
-                    ovm.OrderViewModelList.Add(ovm);
-                    ovmList.OrderViewModelList.Add(ovm);
-                    orderVModels.Add(ovm);
+                  
+                    ovmList.OrderViewModelList.Add(ovm);     
                 }
-
                 return View(ovmList);
             }
              return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,7 +79,6 @@ namespace FeastFreedom03.Controllers
             if (ModelState.IsValid)
             {
                 FeastFreedomEntities1 db = new FeastFreedomEntities1();
-                List<OrderDetail> detailsList = new List<OrderDetail>();
                 OrderViewModel m = new OrderViewModel();
                 OrderDetail dList = new OrderDetail();
                 for (int i = 0; i < _orderViewModels.OrderViewModelList.Count(); i++)
@@ -95,141 +92,86 @@ namespace FeastFreedom03.Controllers
                         details.ItemName = _orderViewModels.OrderViewModelList[i].Item.ItemName;
                         details.Quantity = _orderViewModels.OrderViewModelList[i].OrderDetail.Quantity;
 
-                        //details.UserID = User.Identity;
-                        detailsList.Add(details);
+                        
                         dList.OrderDetailList.Add(details);
                         db.OrderDetails.Add(details);
 
                         //db.SaveChanges();
-                    }
-
-                    
-                }
+                    }                  
+               }
                 return View("OrderSummary", dList);
             }
             return View();
-        } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            public ActionResult OrderSummary(List<OrderDetail> detailsList)
-            {
-                FeastFreedomEntities1 db = new FeastFreedomEntities1();
-
-
-                return View(detailsList);
-            }
-
-
-
-
-
-            /*
-            [HttpPost]
-            [ValidateAntiForgeryToken]
-            public ActionResult OrderPage(OrderViewModel orderViewModel)
-            {
-                FeastFreedomEntities1 db = new FeastFreedomEntities1();
-                //OrderViewModel orderViewModel = new OrderViewModel();
-                List<OrderViewModel> orderVModels = new List<OrderViewModel>();
-                List<OrderDetail> detailsList = new List<OrderDetail>();
-
-
-
-
-
-
-
-
-
-
-
-
-
-                /*
-                if (ModelState.IsValid)
-                {
-                    foreach (var item in orderViewModels)
-                    {
-                        OrderDetail details = new OrderDetail();
-                        if (item.Quantity > 0)
-                        {
-                            details.ItemID = item.ItemID;
-                            details.ItemTotal = item.ItemPrice * item.Quantity;
-                            detailsList.Add(details);
-                        }
-                    }
-                    return RedirectToAction("OrderSummary", detailsList);
-                }
-                 return RedirectToAction("OrderSummary");
-            }
-            */
-
-            /*
-                       foreach (string key in form.AllKeys)
-                       {
-                           OrderDetail details = new OrderDetail();
-                           ViewBag.ItemName = form["ItemName"];
-                           details.ItemName = @ViewBag.ItemName;
-                           detailsList.Add(details);
-
-                       }*/
-
-
-
-
-
-            /*
-             for (int i = 0; i<_orderViewModels.OrderViewModelList.Count(); i++)
-                    {
-                        if (_orderViewModels.OrderDetail.Quantity > 0)
-                        {
-
-                            OrderDetail details = new OrderDetail();
-            details.ItemName = Request["ItemName"];
-                            details.ItemID = item.Item.ItemID;
-                            details.ItemTotal = (item.Item.ItemPrice* item.OrderDetail.Quantity);
-                            details.ItemName = item.Item.ItemName;
-                            //details.UserID = User.Identity;
-                            detailsList.Add(details);
-                            db.OrderDetails.Add(details);
-
-                            db.SaveChanges();
-
-                        }
-                        */
-
-
-
-
         }
+
     }
+}
+
+
+/*vvvvvvvvvvvvvvvvv//////////////////////////////Scrap Code Below////////////////////////////////////////////////vvvvvvvvvvvvvv*/
+/*
+// GET: Order
+
+/* public ActionResult Index()
+ {
+     FeastFreedomEntities1 db = new FeastFreedomEntities1();
+     List<OrderViewModel> orderViewModel = new List<OrderViewModel>();
+     return View();
+ }
+/*[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult OrderPage(OrderViewModel orderViewModel)
+{
+    FeastFreedomEntities1 db = new FeastFreedomEntities1();
+    //OrderViewModel orderViewModel = new OrderViewModel();
+    List<OrderViewModel> orderVModels = new List<OrderViewModel>();
+    List<OrderDetail> detailsList = new List<OrderDetail>();
+    /*if (ModelState.IsValid)
+    {
+        foreach (var item in orderViewModels)
+        {
+            OrderDetail details = new OrderDetail();
+            if (item.Quantity > 0)
+            {
+                details.ItemID = item.ItemID;
+                details.ItemTotal = item.ItemPrice * item.Quantity;
+                detailsList.Add(details);
+            }
+        }
+        return RedirectToAction("OrderSummary", detailsList);
+    }
+     return RedirectToAction("OrderSummary");
+}
+/* foreach (string key in form.AllKeys)
+ {
+     OrderDetail details = new OrderDetail();
+     ViewBag.ItemName = form["ItemName"];
+     details.ItemName = @ViewBag.ItemName;
+     detailsList.Add(details);
+
+ }
+
+
+/* for (int i = 0; i<_orderViewModels.OrderViewModelList.Count(); i++)
+       {
+           if (_orderViewModels.OrderDetail.Quantity > 0)
+           {
+
+               OrderDetail details = new OrderDetail();
+details.ItemName = Request["ItemName"];
+               details.ItemID = item.Item.ItemID;
+               details.ItemTotal = (item.Item.ItemPrice* item.OrderDetail.Quantity);
+               details.ItemName = item.Item.ItemName;
+               //details.UserID = User.Identity;
+               detailsList.Add(details);
+               db.OrderDetails.Add(details);
+
+               db.SaveChanges();
+
+           }*/
+
+
+
+
+
+

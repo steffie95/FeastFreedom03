@@ -23,8 +23,11 @@ namespace FeastFreedom03.Models
         }
         [Display(Name = "Kitchen ID")]
         public int KitchenID { get; set; }
+        [Display (Name = "Kitchen Name")]
         public string KitchenName { get; set; }
+        [Display (Name = "E-mail")]
         public string KitchenEmail { get; set; }
+        [Display (Name = "Password")]
         public string KitchenPassword { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

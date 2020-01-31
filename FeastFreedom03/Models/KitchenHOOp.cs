@@ -11,19 +11,29 @@ namespace FeastFreedom03.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class KitchenHOOp
     {
         public int HOOpID { get; set; }
         public int KitchenID { get; set; }
+        [Display (Name = "Monday")]
         public bool openMon { get; set; }
+        [Display (Name = "Tuesday")]
         public bool openTues { get; set; }
+        [Display (Name = "Wednesday")]
         public bool openWeds { get; set; }
+        [Display (Name = "Thursday")]
         public bool openThurs { get; set; }
+        [Display (Name = "Friday")]
         public bool openFri { get; set; }
+        [Display (Name ="Saturday")]
         public bool openSat { get; set; }
+        [Display (Name = "Sunday")]
         public bool openSun { get; set; }
+        [Display (Name = "Opening Time")]
         public System.TimeSpan openTime { get; set; }
+        [Display (Name = "Closing Time")]
         public System.TimeSpan closeTime { get; set; }
     
         public virtual Kitchen Kitchen { get; set; }

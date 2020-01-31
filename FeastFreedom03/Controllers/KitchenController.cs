@@ -11,6 +11,7 @@ using FeastFreedom03.Models;
 
 namespace FeastFreedom03.Controllers
 {
+    [Authorize]
     public class KitchenController : Controller
     {
         private FeastFreedomEntities1 db = new FeastFreedomEntities1();

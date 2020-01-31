@@ -11,7 +11,10 @@ namespace FeastFreedom03.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class Item
     {
        /* [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +24,11 @@ namespace FeastFreedom03.Models
         }*/
     
         public int ItemID { get; set; }
+        [Display (Name = "Item Name")]
         public string ItemName { get; set; }
+        [Display (Name = "Price")]
         public decimal ItemPrice { get; set; }
+        [Display (Name = "Vegetarian")]
         public bool isVeg { get; set; }
         public Nullable<int> KitchenID { get; set; }
     

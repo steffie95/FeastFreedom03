@@ -25,7 +25,7 @@ namespace FeastFreedom03.Models
         [Display (Name = "SubTotal")]
         public Nullable<decimal> ItemTotal { get; set; }
         public Nullable<int> UserID { get; set; }
-
+        [Display (Name ="ItemName")]
         public string ItemName { get; set; }
     
         public virtual Item Item { get; set; }

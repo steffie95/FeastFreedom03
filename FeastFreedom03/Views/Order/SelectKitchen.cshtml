@@ -5,7 +5,11 @@
     @Html.AntiForgeryToken();
 }
 
-<h2>SelectKitchen</h2>
+<h4>
+    Please select a kitchen <img src="http://24.media.tumblr.com/tumblr_m96h1tBM1D1qczxjoo1_400.gif" height="40" />
+</h4>
+
+
 
 <table class="table">
     <tr>
@@ -15,12 +19,13 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.KitchenName, "OrderPage", "Order", new {kitchenID = item.KitchenID }, htmlAttributes:null) 
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.KitchenName, "OrderPage", "Order", new { kitchenID = item.KitchenID }, htmlAttributes: null)
+            </td>
+        </tr>
+    }
 
 </table>

@@ -14,6 +14,7 @@ using FeastFreedom03.Models;
 
 namespace FeastFreedom03.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private FeastFreedomEntities1 db = new FeastFreedomEntities1();

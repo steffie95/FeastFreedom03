@@ -4,6 +4,14 @@
 
 
 <div>
-    @Html.ActionLink("Register a Kitchen", "Create", "Kitchen")</br>
-    @Html.ActionLink("Place an Order", "SelectKitchen", "Order")
+    Welcome to FeastFreedom! We provide high-quality-home-cooked meals, delivered to your doorstep.
+
 </div>
+<a href="@Url.Action("Index", "Kitchen")">
+    <img src="https://66.media.tumblr.com/4d14a83ff2c7c949a1aaa57c3f660b8d/tumblr_p6b6weQnJG1vbdodoo1_500.gifv" height="250" align="middle" />
+</a>
+<p>
+    <img src="https://static.wixstatic.com/media/3aee97_bba1dbc86f7445229fc322cec7de5a95~mv2.gif" height="70" />
+    <a href="@Url.Action("SelectKitchen", "Order")" id="order-btn" class="btn btn-primary btn-lg" align="center">Place Your Order &raquo;</a>
+    <img src="https://thumbs.gfycat.com/FixedPolishedEuropeanfiresalamander-size_restricted.gif" height="50" />
+</p>

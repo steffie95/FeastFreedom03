@@ -21,7 +21,7 @@ namespace FeastFreedom03.Controllers
         }
 
 
-        [ValidateAntiForgeryToken]
+        
         public ActionResult OrderComplete()
         {
             return View();
@@ -53,6 +53,9 @@ namespace FeastFreedom03.Controllers
                                 join k in context.Kitchens
                                 on i.KitchenID equals kitchenID
                                 select new { i.ItemName, i.ItemPrice, i.Kitchen.KitchenName, i.ItemID, i.isVeg }).ToList().Distinct();
+
+
+
                 OrderViewModel ovmList = new OrderViewModel();
                 foreach (var item in itemList)
                 { 
@@ -79,7 +82,7 @@ namespace FeastFreedom03.Controllers
             if (ModelState.IsValid)
             {
                 FeastFreedomEntities1 db = new FeastFreedomEntities1();
-                OrderViewModel m = new OrderViewModel();
+             
                 OrderDetail dList = new OrderDetail();
                 for (int i = 0; i < _orderViewModels.OrderViewModelList.Count(); i++)
                 {

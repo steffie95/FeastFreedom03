@@ -11,6 +11,7 @@ namespace FeastFreedom03.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class User
     {
@@ -24,6 +25,7 @@ namespace FeastFreedom03.Models
         public int UserID { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
+        [DataType (DataType.Password)]
         public string UserPassword { get; set; }
         public string SQAnswer1 { get; set; }
         public string SQAnswer2 { get; set; }
